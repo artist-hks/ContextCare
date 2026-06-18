@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsx server.ts",
     "build": "next build",
-    "start": "NODE_ENV=production tsx server.ts",
+    "start": "npx prisma migrate deploy && tsx prisma/seed.ts && NODE_ENV=production tsx server.ts",
     "postinstall": "prisma generate",
     "db:seed": "tsx prisma/seed.ts"
   },
