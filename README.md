@@ -2,6 +2,7 @@
 
 A healthcare workflow application that digitizes physical lab reports into structured, doctor-ready clinical data using OCR technology with real-time doctor dashboards.
 
+**🚀 Live Demo:** [https://contextcare.onrender.com](https://contextcare.onrender.com)
 ## What It Does
 
 1. **Patient** photographs their lab report on their phone
