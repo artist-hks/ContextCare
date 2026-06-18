@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Doctor {
+  id             String    @id @default(cuid())
+  name           String
+  specialization String?
+  pinHash        String
+  qrToken        String    @unique
+  createdAt      DateTime  @default(now())
+  patients       Patient[]
+}
+
+model Patient {
+  id        String   @id @default(cuid())
+  doctorId  String
+  doctor    Doctor   @relation(fields: [doctorId], references: [id])
+  name      String
+  phone     String
+  createdAt DateTime @default(now())
+  scans     Scan[]
+  notes     Note[]
+
+  @@unique([doctorId, phone])
+}
+
+model Scan {
+  id        String   @id @default(cuid())
+  patientId String
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  rawText   String?
+  createdAt DateTime @default(now())
+  metrics   Metric[]
+}
+
+model Metric {
+  id     String @id @default(cuid())
+  scanId String
+  scan   Scan   @relation(fields: [scanId], references: [id])
+  key    String
+  label  String
+  value  Float
+  unit   String
+  refMin Float
+  refMax Float
+  status String // "normal" | "borderline" | "critical"
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  patientId String
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  content   String
+  createdAt DateTime @default(now())
+}
