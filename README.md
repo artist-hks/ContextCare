@@ -66,11 +66,11 @@ ContextCare solves this by letting patients photograph their reports on any smar
 ## 🔄 How It Works
 
 ```
-┌─────────────┐     ┌──────────────┐     ┌────────────┐     ┌──────────────────┐
-│   Patient   │     │  OCR Engine  │     │  Database  │     │ Doctor Dashboard │
-│   (Phone)   │────▶│  (Extract)   │────▶│  (Store)   │────▶│   (Real-time)    │
-└─────────────┘     └──────────────┘     └────────────┘     └──────────────────┘
-       │                   │                   │                     │
++-------------+     +--------------+     +------------+     +------------------+
+|   Patient   |     |  OCR Engine  |     |  Database  |     | Doctor Dashboard |
+|   (Phone)   |---->|  (Extract)   |---->|  (Store)   |---->|   (Real-time)    |
++-------------+     +--------------+     +------------+     +------------------+
+       |                   |                   |                     |
   1. Photo           2. Parse           3. Persist            4. Display
   lab report         6 diagnostic       patient data +        metric cards,
                      metrics with       extracted metrics     trends, notes,
