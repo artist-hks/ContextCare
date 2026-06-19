@@ -1,3 +1,4 @@
+<h1 align="center">🩺 ContextCare AI</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 14" />
   <img src="https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
@@ -6,9 +7,6 @@
   <img src="https://img.shields.io/badge/Socket.IO-4.8-010101?style=for-the-badge&logo=socket.io&logoColor=white" alt="Socket.IO" />
   <img src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge" alt="MIT License" />
 </p>
-
-<h1 align="center">🩺 ContextCare AI</h1>
-
 <p align="center">
   <strong>Digitize physical lab reports into structured, doctor-ready clinical data — in seconds.</strong>
 </p>
