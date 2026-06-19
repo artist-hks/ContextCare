@@ -66,15 +66,15 @@ ContextCare solves this by letting patients photograph their reports on any smar
 ## 🔄 How It Works
 
 ```
-┌─────────────┐     ┌──────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   Patient    │     │  OCR Engine  │     │   Database       │     │ Doctor Dashboard │
-│  📱 Phone   │────▶│  🔍 Extract  │────▶│  💾 Store        │────▶│  📊 Real-time   │
-└─────────────┘     └──────────────┘     └──────────────────┘     └─────────────────┘
-      │                    │                      │                        │
-  1. Photo            2. Parse              3. Persist              4. Display
-  lab report       6 diagnostic         patient data +          metric cards,
-                   metrics with         extracted metrics       trends, notes,
-                   reference ranges                             PDF export
+┌─────────────┐     ┌──────────────┐     ┌────────────┐     ┌──────────────────┐
+│   Patient   │     │  OCR Engine  │     │  Database  │     │ Doctor Dashboard │
+│   (Phone)   │────▶│  (Extract)   │────▶│  (Store)   │────▶│   (Real-time)    │
+└─────────────┘     └──────────────┘     └────────────┘     └──────────────────┘
+       │                   │                   │                     │
+  1. Photo           2. Parse           3. Persist            4. Display
+  lab report         6 diagnostic       patient data +        metric cards,
+                     metrics with       extracted metrics     trends, notes,
+                   reference ranges                           PDF export
 ```
 
 **Step-by-step flow:**
@@ -129,22 +129,22 @@ ContextCare solves this by letting patients photograph their reports on any smar
                                   │                    │
               ┌───────────────────┼────────────────────┼──────────────┐
               │                   │                    │              │
-     ┌────────▼────────┐ ┌───────▼───────┐  ┌────────▼────────┐     │
-     │  Patient Flow   │ │  Doctor Flow  │  │   Real-time     │     │
-     │                 │ │               │  │   Events        │     │
-     │  • Upload photo │ │  • PIN login  │  │                 │     │
-     │  • OCR extract  │ │  • Dashboard  │  │  • scan:created │     │
-     │  • Review       │ │  • Notes      │  │  • heartbeat    │     │
-     │  • QR pairing   │ │  • PDF export │  │                 │     │
-     └────────┬────────┘ └───────┬───────┘  └─────────────────┘     │
+     ┌────────▼────────┐ ┌───────▼───────┐  ┌────────▼────────┐       │
+     │  Patient Flow   │ │  Doctor Flow  │  │   Real-time     │       │
+     │                 │ │               │  │   Events        │       │
+     │  • Upload photo │ │  • PIN login  │  │                 │       │
+     │  • OCR extract  │ │  • Dashboard  │  │  • scan:created │       │
+     │  • Review       │ │  • Notes      │  │  • heartbeat    │       │
+     │  • QR pairing   │ │  • PDF export │  │                 │       │
+     └────────┬────────┘ └───────┬───────┘  └─────────────────┘       │
               │                  │                                    │
-              └──────────┬───────┘                                   │
-                         │                                           │
-                ┌────────▼─────────┐                                 │
-                │   Prisma ORM     │                                 │
-                │   + SQLite DB    │                                 │
-                └──────────────────┘                                 │
-              ┌──────────────────────────────────────────────────────┘
+              └──────────┬───────┘                                    │
+                         │                                            │
+                ┌────────▼─────────┐                                  │
+                │   Prisma ORM     │                                  │
+                │   + SQLite DB    │                                  │
+                └──────────────────┘                                  │
+              ┌───────────────────────────────────────────────────────┘
               │
      ┌────────▼────────┐
      │  Tesseract.js   │
@@ -314,7 +314,7 @@ The application uses **5 Prisma models** with the following relationships:
 
 ```
 ┌──────────┐       ┌──────────┐       ┌──────────┐       ┌──────────┐
-│  Doctor   │──1:N──│ Patient  │──1:N──│   Scan   │──1:N──│  Metric  │
+│  Doctor  │──1:N──│ Patient  │──1:N──│   Scan   │──1:N──│  Metric  │
 └──────────┘       └──────────┘       └──────────┘       └──────────┘
                         │
                         │──1:N──┌──────────┐
