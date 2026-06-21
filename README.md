@@ -423,4 +423,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
   <a href="#-getting-started">Getting Started</a> •
   <a href="#-api-reference">API Docs</a>
 </p>
-<!-- Updated to trigger a GitHub contribution on 2026-06-20 -->
+<!-- Updated to trigger a GitHub contribution on 2026-06-21 -->
